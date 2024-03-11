@@ -14,6 +14,9 @@
 
 ### Entity Relation Diagram
 
+#### [Online Schema](https://dbdiagram.io/d/e-faktur-65ef2361b1f3d4062ca396c4)
+![e-faktur-ERD](./assets/Entity_Relation_Diagram.png)
+
 ### Application Flow Diagram
 
 ### Application Design Challenges and Implementations
