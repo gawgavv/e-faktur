@@ -1,0 +1,5 @@
+# docker compose env variables ignore
+.env
+
+# containers data ignore
+db_data
