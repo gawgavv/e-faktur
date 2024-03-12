@@ -1,4 +1,10 @@
 import { DataSource } from "typeorm";
+import { User } from "../users/users.entity";
+import { Invoice } from "../invoices/invoices.entity";
+import { Product } from "../invoices/product.entity";
+import { InvoiceProduct } from "../invoices/invoiceproduct.entity";
+import { Customer } from "../invoices/customer.entity";
+import { SalesPerson } from "../invoices/salesperson.entity";
 
 class DatabaseConnection {
 
@@ -12,7 +18,16 @@ class DatabaseConnection {
             username: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-            logging: true
+            entities: [
+                User,
+                Invoice,
+                Product,
+                InvoiceProduct,
+                Customer,
+                SalesPerson
+            ],
+            logging: true,
+            synchronize: true
         });
     }
 
