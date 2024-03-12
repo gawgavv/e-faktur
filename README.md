@@ -6,7 +6,15 @@
     2. [Application Flow Diagram](#application-flow-diagram)
     3. [Application Design Challenges and Implementations](#application-design-challenges-and-implementations)
 
-## Project Details
+## Project Introduction
+
+- Name : E-faktur
+- Description : A web app that helps to manage invoice
+- Minimum Viable Product :
+    - User can sign in to the dashboard
+    - User can sign up another user
+    - User can publish an invoice
+    - User can see data derived from the-published-invoices
 
 ## How to Run on Local Machine
 
