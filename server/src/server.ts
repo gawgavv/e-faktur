@@ -1,11 +1,16 @@
-import express, { Application } from 'express';
+import express, { Application, Router } from 'express';
+
+import invoiceController from './invoices/invoices.controller'
+import userController from './users/users.controller';
 
 class Server {
 
     public app: Application;
     private PORT: number | string;
 
-    constructor() {
+    private routers: Router[];
+
+    constructor(routers: Router[]) {
         // Server configurations
         this.app = express();
         this.PORT = process.env.PORT || 3000;
@@ -13,6 +18,13 @@ class Server {
         // Server's requests' body parsers
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+
+        // Static files path (images, etc)
+        this.app.use(express.static(`public`));
+
+        // Routers configurations
+        this.routers = routers;
+        this.app.use(this.routers);
     }
 
     // Server bootstrap method
@@ -23,5 +35,5 @@ class Server {
 }
 
 import dotenv from 'dotenv';
-dotenv.config()
-export default new Server();
+dotenv.config();
+export default new Server([invoiceController.router, userController.router]);
