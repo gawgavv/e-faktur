@@ -43,14 +43,23 @@ export class Invoice extends BaseEntity {
     @Column(`integer`)
     totalPrice: number;
 
-    @Column(`integer`)
-    paid: number;
-
     @Column({
         type: `boolean`,
         default: false
     })
-    paidOff: boolean;
+    paid: boolean;
+
+    @Column({
+        type: `timestamptz`,
+        default: () => `NOW()`
+    })
+    createdAt: Date;
+
+    @Column({
+        type: `timestamptz`,
+        default: () => `NOW()`
+    })
+    updatedAt: Date;
 
     @ManyToOne(
         () => User,
