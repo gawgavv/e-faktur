@@ -2,7 +2,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "t
 import { Invoice } from "./invoices.entity";
 
 @Entity({
-    name: `Entities`
+    name: `Customers`
 })
 export class Customer extends BaseEntity {
 
