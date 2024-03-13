@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
 
 import { UserService } from './users.service';
+import { AuthService } from '../utils/auth.service';
 
 export class UserController {
 
@@ -20,9 +21,9 @@ export class UserController {
 
     private async signInRequestHandler(req: Request, res: Response, next: NextFunction) {
         try {
-            const { email, password }: { email: string, password: string } = req.body;
-            if(!email) throw { name: `EmptyFieldSignIn`, message: `Email is required` };
-            if(!password) throw { name: `EmptyFieldSignIn`, message: `Password is required` };
+            const { email, password }: { email?: string, password?: string } = req.body;
+            if(!email) throw { name: `BadRequest`, message: `Email is required` };
+            if(!password) throw { name: `BadRequest`, message: `Password is required` };
 
             const { accessToken, name } = await this.userService.signIn(email, password);
 
@@ -34,7 +35,14 @@ export class UserController {
 
     private async signOutRequestHandler(req: Request, res: Response, next: NextFunction) {
         try {
+            const { accessToken }: { accessToken?: string } = req.body
+            if(!accessToken) throw { name: `BadRequest`, message: `Please provide your access token` };
+
+            const success: true = await this.userService.signOut(accessToken);
+
+            res.sendStatus(204);
         } catch (error) {
+            next(error);
         }
     }
 
@@ -45,5 +53,5 @@ export class UserController {
     }
 }
 
-export default new UserController(new UserService());
+export default new UserController(new UserService(new AuthService()));
 

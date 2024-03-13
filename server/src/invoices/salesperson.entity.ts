@@ -6,7 +6,7 @@ import { Invoice } from "./invoices.entity";
 })
 export class SalesPerson extends BaseEntity {
 
-    @PrimaryGeneratedColumn(`uuid`)
+    @PrimaryGeneratedColumn(`increment`)
     id: string;
 
     @Column(`varchar`)

@@ -9,7 +9,7 @@ class ErrorController {
 
         switch(err.name) {
 
-            case `EmptyFieldSignIn`:
+            case `BadRequest`:
                 statusCode = 400;
                 break;
             

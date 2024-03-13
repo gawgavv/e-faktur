@@ -9,8 +9,8 @@ import { Invoice } from "../invoices/invoices.entity";
 })
 export class User extends BaseEntity {
 
-    @PrimaryGeneratedColumn(`uuid`)
-    id: string;
+    @PrimaryGeneratedColumn(`increment`)
+    id: number;
 
     @Column(`varchar`)
     name: string;
