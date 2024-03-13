@@ -8,6 +8,11 @@ import { Customer } from "../invoices/customer.entity";
 import { SalesPerson } from "../invoices/salesperson.entity";
 
 import { CreateUsers1710346494199 } from "../migrations/1710346494199-create-users";
+import { CreateProducts1710352590443 } from "../migrations/1710352590443-create-products";
+import { CreateCustomers1710352612914 } from "../migrations/1710352612914-create-customers";
+import { CreateSalesPeople1710352648038 } from "../migrations/1710352648038-create-sales-people";
+import { CreateInvoices1710352663349 } from "../migrations/1710352663349-create-invoices";
+import { CreateInvoiceProducts1710352675061 } from "../migrations/1710352675061-create-invoice-products";
 
 class DatabaseConnection {
 
@@ -29,7 +34,14 @@ class DatabaseConnection {
                 Customer,
                 SalesPerson
             ],
-            migrations: [CreateUsers1710346494199],
+            migrations: [
+                CreateUsers1710346494199,
+                CreateProducts1710352590443,
+                CreateCustomers1710352612914,
+                CreateSalesPeople1710352648038,
+                CreateInvoices1710352663349,
+                CreateInvoiceProducts1710352675061
+            ],
             migrationsRun: true,
             logging: true
         });

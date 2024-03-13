@@ -13,21 +13,17 @@ export class CreateUsers1710346494199 implements MigrationInterface {
         CREATE TYPE USERROLE AS ENUM('admin', 'staff');
         `)
 
-        console.log(`USER ROLE TYPE CREATED...`);
-
         await queryRunner.query(`
         CREATE TABLE IF NOT EXISTS "Users"(
             "id" SERIAL PRIMARY KEY,
             "name" VARCHAR,
             "email" VARCHAR NOT NULL UNIQUE,
             "password" VARCHAR,
-            "role" USERROLE,
+            "role" USERROLE NOT NULL,
             "createdAt" TIMESTAMPTZ DEFAULT NOW(),
             "updatedAt" TIMESTAMPTZ DEFAULT NOW()
         );
         `)
-
-        console.log(`USER TABLE CREATED...`);
 
         const users: { name: string, email: string, password: string, role: `admin` | `staff` }[] = require(`../../data/users.json`);
         const values = users.map((user) => {
