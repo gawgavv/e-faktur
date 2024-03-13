@@ -1,10 +1,10 @@
 import { createClient, RedisClientType } from 'redis';
 
-class Cache {
+export class Cache {
 
-    private client;
+    public client;
 
-    public connection: ReturnType<typeof this.client.connect>;
+    public REVOKED_ACC_TOKEN_KEY = `Token/Revoked`;
 
     constructor() {
         this.client = createClient({
@@ -14,11 +14,6 @@ class Cache {
                 port: Number(process.env.CACHE_PORT)
             }
         });
-    }
-
-    async getConnection(): ReturnType<typeof this.client.connect> {
-        if(this.connection) return await this.connection
-        return await this.client.connect()
     }
 }
 

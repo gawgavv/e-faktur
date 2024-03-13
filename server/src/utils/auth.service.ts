@@ -3,11 +3,15 @@ import { sign } from 'crypto';
 import jsonwebtoken, { JwtPayload } from 'jsonwebtoken';
 
 interface UserPayload {
-    id: string
+    id: number
     role: `admin` | `staff`
 }
 
-class HashService {
+interface MyJWTPayload extends JwtPayload {
+    exp: number
+}
+
+export class AuthService {
 
     private JWT_SECRET: string;
 
@@ -36,14 +40,14 @@ class HashService {
         return jsonwebtoken.sign(payload, this.JWT_SECRET, { expiresIn: `8h` });
     }
 
-    verifToken(token: string): JwtPayload & UserPayload {
+    verifToken(token: string): UserPayload & MyJWTPayload {
 
         const payload = jsonwebtoken.verify(token, this.JWT_SECRET)
 
         if(typeof payload === `string`) throw { name: `Unauthorized`, message: `Invalid token` };
 
-        return payload as JwtPayload & UserPayload;
+        return payload as UserPayload & MyJWTPayload;
     }
 }
 
-export default new HashService();
+export default new AuthService();
