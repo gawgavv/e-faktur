@@ -1,6 +1,6 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Index, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Index, OneToMany, BeforeInsert } from "typeorm";
 
-import bcrypt from 'bcryptjs';
+import authService from "../utils/auth.service";
 
 import { Invoice } from "../invoices/invoices.entity";
 
@@ -32,7 +32,7 @@ export class User extends BaseEntity {
         type: `enum`,
         enum: [`admin`, `staff`]
     })
-    role: string;
+    role: `admin` | `staff`;
 
     @Column({
         type: `timestamptz`,
@@ -58,8 +58,7 @@ export class User extends BaseEntity {
     @BeforeInsert()
     async hashPassword() {
         try {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPass = await bcrypt.hash(this.password, salt);
+            const hashedPass = await authService.hashPass(this.password);
             this.password = hashedPass;
         } catch (error) {
             throw error;
