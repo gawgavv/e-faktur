@@ -12,8 +12,11 @@
 - Description : A web app that helps to manage invoice
 - Minimum Viable Product :
     - User can sign in to the dashboard
+    - User can sign out of the dashboard
     - User can sign up another user
+    - User can see list of published invoices
     - User can publish an invoice
+    - User can see detail of an invoice
     - User can see data derived from the-published-invoices
 
 ## How to Run on Local Machine
