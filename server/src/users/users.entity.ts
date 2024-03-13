@@ -10,7 +10,7 @@ import { Invoice } from "../invoices/invoices.entity";
 export class User extends BaseEntity {
 
     @PrimaryGeneratedColumn(`increment`)
-    id: string;
+    id: number;
 
     @Column(`varchar`)
     name: string;
