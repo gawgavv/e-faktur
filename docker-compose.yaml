@@ -1,6 +1,5 @@
 version: '0.0.1'
 
-
 services:
 
   e-faktur-database:
@@ -18,6 +17,18 @@ services:
     env_file:
       - .env
 
+  e-faktur-cache:
+    image: redis:7.2.4
+    volumes:
+      - ./cache_data:/var/lib/redis/data
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_PASS"
+    ports:
+      - 3002:6379
+    env_file:
+      - .env
+
 volumes:
   e-faktur-database:
+    driver: local
+  e-faktur-cache:
     driver: local
