@@ -19,7 +19,7 @@ export class UserController {
         this.router.route(`/users`).post(this.signUp);
     }
 
-    private async signInRequestHandler(req: Request, res: Response, next: NextFunction) {
+    private signInRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { email, password }: { email?: string, password?: string } = req.body;
             if(!email) throw { name: `BadRequest`, message: `Email is required` };
@@ -33,7 +33,7 @@ export class UserController {
         }
     }
 
-    private async signOutRequestHandler(req: Request, res: Response, next: NextFunction) {
+    private signOutRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { accessToken }: { accessToken?: string } = req.body
             if(!accessToken) throw { name: `BadRequest`, message: `Please provide your access token` };

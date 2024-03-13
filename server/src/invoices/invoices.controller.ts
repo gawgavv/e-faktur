@@ -35,42 +35,42 @@ export class InvoiceController {
         .get(this.listSalesPeopleRequestHandler);
     }
 
-    async listInvoicesRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public listInvoicesRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);
         }
     }
 
-    async invoiceDetailRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public invoiceDetailRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);
         }
     }
 
-    async publishInvoicesRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public publishInvoicesRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);
         }
     }
 
-    async listProductsRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public listProductsRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);
         }
     }
 
-    async listCustomersRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public listCustomersRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);
         }
     }
 
-    async listSalesPeopleRequestHandler(req: Request, res: Response, next: NextFunction) {
+    public listSalesPeopleRequestHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
         } catch (err) {
             next(err);

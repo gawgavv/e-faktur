@@ -44,7 +44,9 @@ export class UserService {
 
         if(!user) throw { name: `Unauthorized`, message: `Invalid token` };
 
-        await cache.client.zAdd(cache.REVOKED_ACC_TOKEN_KEY, [{ score: exp, value: accessToken }]);
+        // await cache.client.zAdd(cache.REVOKED_ACC_TOKEN_KEY, [{ score: exp, value: accessToken }]);
+        const cacheConnection = await cache.getConnection();
+        await cacheConnection.zAdd(cache.REVOKED_ACC_TOKEN_KEY, [{ score: exp, value: accessToken }]);
         
         return true
     }
