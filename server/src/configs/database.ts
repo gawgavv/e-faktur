@@ -7,6 +7,8 @@ import { InvoiceProduct } from "../invoices/invoiceproduct.entity";
 import { Customer } from "../invoices/customer.entity";
 import { SalesPerson } from "../invoices/salesperson.entity";
 
+import { CreateUsers1710346494199 } from "../migrations/1710346494199-create-users";
+
 class DatabaseConnection {
 
     public dataSource: DataSource;
@@ -27,8 +29,9 @@ class DatabaseConnection {
                 Customer,
                 SalesPerson
             ],
-            logging: true,
-            synchronize: true
+            migrations: [CreateUsers1710346494199],
+            migrationsRun: true,
+            logging: true
         });
     }
 
