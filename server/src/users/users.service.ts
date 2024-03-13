@@ -21,4 +21,10 @@ export class UserService {
         const accessToken = authService.genToken({ id, role });
         return { accessToken, name }
     }
+
+    async signOut() {
+    }
+
+    async createUser() {
+    }
 }
