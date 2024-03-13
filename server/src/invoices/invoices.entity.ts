@@ -1,4 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn,Column, Index, ManyToOne, JoinColumn, OneToMany } from "typeorm";
+
 import { User } from "../users/users.entity";
 import { Customer } from "./customer.entity";
 import { SalesPerson } from "./salesperson.entity";
