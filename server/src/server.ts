@@ -3,6 +3,8 @@ import express, { Application, Router } from 'express';
 import invoiceController from './invoices/invoices.controller'
 import userController from './users/users.controller';
 
+import errorController from './utils/error.controller';
+
 class Server {
 
     public app: Application;
@@ -25,12 +27,15 @@ class Server {
         // Routers configurations
         this.routers = routers;
         this.app.use(this.routers);
+
+        // Error Handler
+        this.app.use(errorController.errorHandler);
     }
 
     // Server bootstrap method
     public start() {
         this.app.get(`/`, (req, res) => res.send(`Hello World`));
-        this.app.listen(this.PORT, () => console.log(`Server is listening on port ${this.PORT}`));
+        this.app.listen(+this.PORT, () => console.log(`Server is listening on port ${this.PORT}`));
     }
 }
 
