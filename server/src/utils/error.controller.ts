@@ -13,8 +13,8 @@ class ErrorController {
                 statusCode = 400;
                 break;
             
-            case `NotFound`:
-                statusCode = 404;
+            case `Unauthorized`:
+                statusCode = 401;
                 break;
                 
             default:
