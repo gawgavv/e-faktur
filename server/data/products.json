@@ -1,0 +1,26 @@
+[
+    {
+        "productName": "Ram Aosenke AS490 8GB",
+        "stock": 89,
+        "price": 347000,
+        "productPic": "RAM_AOSENKE_AS490.jpg"
+    },
+    {
+        "productName": "Ram Aosenke AS490 16GB",
+        "stock": 50,
+        "price": 583000,
+        "productPic": "AOSENKE_AS490.jpg"
+    },
+    {
+        "productName": "Ram Adata Xpg D10 8GB",
+        "stock": 66,
+        "price": 299000,
+        "productPic": "ADATA_D10.jpg"
+    },
+    {
+        "productName": "Ssd Adata SU650 512GB",
+        "stock": 50,
+        "price": 625000,
+        "productPic": "ADATA_SU650.jpg"
+    }
+]

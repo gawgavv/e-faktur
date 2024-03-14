@@ -1,8 +1,13 @@
-import server from './server';
+import 'reflect-metadata';
 
-try {
-    server.start()
-} catch (err) {
-    console.error(err)
+import server from './server';
+import databaseConnection from './configs/database';
+
+databaseConnection.getConnection()
+.then(function() {
+    server.start();
+})
+.catch(function(err) {
+    console.error(err);
     process.exit(1);
-};
+})
